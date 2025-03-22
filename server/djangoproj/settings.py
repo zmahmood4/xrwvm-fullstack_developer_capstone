@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-from pathlib import Path
+from pathlib import (
+    Path,
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0"
+SECRET_KEY = (
+    "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -65,9 +69,18 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(BASE_DIR, "frontend/static"),
-            os.path.join(BASE_DIR, "frontend/build"),
-            os.path.join(BASE_DIR, "frontend/build/static"),
+            os.path.join(
+                BASE_DIR,
+                "frontend/static",
+            ),
+            os.path.join(
+                BASE_DIR,
+                "frontend/build",
+            ),
+            os.path.join(
+                BASE_DIR,
+                "frontend/build/static",
+            ),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -128,8 +141,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-MEDIA_ROOT = os.path.join(STATIC_ROOT, "media")
+STATIC_ROOT = os.path.join(
+    BASE_DIR,
+    "static",
+)
+MEDIA_ROOT = os.path.join(
+    STATIC_ROOT,
+    "media",
+)
 MEDIA_URL = "/media/"
 
 # Default primary key field type
@@ -138,7 +157,16 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "frontend/static"),
-    os.path.join(BASE_DIR, "frontend/build"),
-    os.path.join(BASE_DIR, "frontend/build/static"),
+    os.path.join(
+        BASE_DIR,
+        "frontend/static",
+    ),
+    os.path.join(
+        BASE_DIR,
+        "frontend/build",
+    ),
+    os.path.join(
+        BASE_DIR,
+        "frontend/build/static",
+    ),
 ]
