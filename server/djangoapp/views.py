@@ -2,13 +2,8 @@
 
 import json
 import logging
-from datetime import (
-    datetime,
-)
 
-from django.contrib import (
-    messages,
-)
+
 from django.contrib.auth import (
     authenticate,
     login,
@@ -18,15 +13,9 @@ from django.contrib.auth.models import (
     User,
 )
 from django.http import (
-    HttpResponse,
-    HttpResponseRedirect,
     JsonResponse,
 )
-from django.shortcuts import (
-    get_object_or_404,
-    redirect,
-    render,
-)
+
 from django.views.decorators.csrf import (
     csrf_exempt,
 )
@@ -102,7 +91,6 @@ def logout_request(
 def registration(
     request,
 ):
-    context = {}
     data = json.loads(request.body)
     username = data["userName"]
     password = data["password"]
