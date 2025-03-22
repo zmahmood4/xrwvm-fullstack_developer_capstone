@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
-    "https://zmahmood4-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai", # noqa: E501
+    "https://zmahmood4-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",  # noqa: E501
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://zmahmood4-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai" # noqa: E501

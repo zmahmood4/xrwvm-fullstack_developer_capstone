@@ -3,6 +3,7 @@
 import json
 import logging
 
+from requests.exceptions import RequestException
 
 from django.contrib.auth import (
     authenticate,
