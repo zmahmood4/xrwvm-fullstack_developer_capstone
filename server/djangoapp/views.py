@@ -152,7 +152,6 @@ def registration(
     return JsonResponse(data)
 
 
-# Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
 def get_dealerships(
     request,
     state="All",
@@ -222,12 +221,12 @@ def get_dealer_reviews(
 def add_review(
     request,
 ):
-    if request.user.is_anonymous == False:
+    if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
-            response = post_review(data)
+            post_review(data)
             return JsonResponse({"status": 200})
-        except:
+        except RequestException:
             return JsonResponse(
                 {
                     "status": 401,
