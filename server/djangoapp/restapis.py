@@ -2,6 +2,7 @@
 import os
 
 import requests
+from requests.exceptions import RequestException
 from dotenv import (
     load_dotenv,
 )
@@ -39,9 +40,9 @@ def get_request(
         # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
         return response.json()
-    except:
-        # If any error occurs
-        print("Network exception occurred")
+    except RequestException as e:
+        # If any network-related error occurs
+        print(f"Network exception occurred: {e}")
 
 
 # def analyze_review_sentiments(text):
@@ -69,5 +70,5 @@ def post_review(
         )
         print(response.json())
         return response.json()
-    except:
-        print("Network exception occurred")
+    except RequestException as e:
+        print(f"Network exception occurred: {e}")
