@@ -145,25 +145,13 @@ def add_review(request):
     else:
         return JsonResponse({"status":403,"message":"Unauthorized"})
 
-@csrf_exempt
 def get_cars(request):
     count = CarMake.objects.filter().count()
-    print(f"CarMakes count: {count}")
-    
-    # Populate the data if no car makes exist
-    if count == 0:
+    print(count)
+    if(count == 0):
         initiate()
-
-    # Retrieve car models and structure the response
     car_models = CarModel.objects.select_related('car_make')
     cars = []
     for car_model in car_models:
-        cars.append({
-            "make": car_model.car_make.name,
-            "model": car_model.name,
-            "bodyType": car_model.type,
-            "year": car_model.year,
-            "dealer_id": car_model.dealer_id,  # Assuming you have this field in the model
-        })
-
-    return JsonResponse({"cars": cars})
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
+    return JsonResponse({"CarModels":cars})
